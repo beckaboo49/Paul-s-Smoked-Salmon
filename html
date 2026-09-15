@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yurok Smokehouse &amp; Basketry Outpost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #0d0d0d;
+      --card-black: #141414;
+      --panel-dark: #1c1c1c;
+      --yurok-red: #c92a2a;
+      --yurok-red-dark: #8b0000;
+      --yurok-white: #f8f9fa;
+      --muted-gray: #a6a6a6;
+      --border-light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--yurok-white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .signboard-container {
+      width: 100%;
+      max-width: 960px;
+      background-color: var(--card-black);
+      border: 4px solid var(--yurok-white);
+      box-shadow: 12px 12px 0px var(--yurok-red);
+    }
+
+    /* CSS Geometric Triangle Basketry Border Motif */
+    .basket-motif-band {
+      height: 16px;
+      background-color: var(--bg-black);
+      background-image: 
+        linear-gradient(45deg, var(--yurok-red) 25%, transparent 25%), 
+        linear-gradient(-45deg, var(--yurok-red) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, var(--yurok-white) 75%), 
+        linear-gradient(-45deg, transparent 75%, var(--yurok-white) 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 0, 8px -8px, 0px 8px;
+      border-bottom: 3px solid var(--yurok-white);
+    }
+
+    /* Top Highway Status Bar */
+    .road-marker-bar {
+      background-color: var(--yurok-red);
+      color: var(--yurok-white);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 4px solid var(--yurok-white);
+    }
+
+    .status-badge {
+      background-color: var(--bg-black);
+      color: var(--yurok-white);
+      padding: 4px 10px;
+      border: 1px solid var(--yurok-white);
+    }
+
+    .main-header {
+      padding: 40px 24px;
+      text-align: center;
+      border-bottom: 4px solid var(--yurok-white);
+      background-color: var(--panel-dark);
+    }
+
+    .tribal-affiliation {
+      display: inline-block;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yurok-red);
+      margin-bottom: 8px;
+    }
+
+    .main-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--yurok-white);
+    }
+
+    .sub-title {
+      font-size: 1.05rem;
+      color: var(--muted-gray);
+      max-width: 650px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Two Counter Split Grid */
+    .counters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 4px solid var(--yurok-white);
+    }
+
+    @media (max-width: 768px) {
+      .counters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .counter-panel {
+      padding: 36px 28px;
+    }
+
+    .counter-left {
+      border-right: 3px solid var(--yurok-white);
+    }
+
+    @media (max-width: 768px) {
+      .counter-left {
+        border-right: none;
+        border-bottom: 4px solid var(--yurok-white);
+      }
+    }
+
+    .panel-tag {
+      display: inline-block;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yurok-red);
+      margin-bottom: 8px;
+    }
+
+    .panel-heading {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--yurok-red);
+      padding-bottom: 8px;
+      color: var(--yurok-white);
+    }
+
+    .inventory-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .inventory-item {
+      border-left: 4px solid var(--yurok-red);
+      padding-left: 14px;
+    }
+
+    .item-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: block;
+      color: var(--yurok-white);
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: var(--muted-gray);
+      margin-top: 4px;
+    }
+
+    /* Wayfinding & Map Layout */
+    .wayfinding-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 4px solid var(--yurok-white);
+    }
+
+    @media (max-width: 768px) {
+      .wayfinding-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .map-container {
+      background-color: var(--panel-dark);
+      border-right: 3px solid var(--yurok-white);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .map-container {
+        border-right: none;
+        border-bottom: 4px solid var(--yurok-white);
+      }
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      border: 2px solid var(--yurok-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background-color: var(--bg-black);
+    }
+
+    .map-frame img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .map-label {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-gray);
+      margin-top: 8px;
+    }
+
+    .wayfinding-details {
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      background-color: var(--card-black);
+    }
+
+    .detail-block h3 {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      color: var(--yurok-red);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .detail-block p {
+      font-size: 0.95rem;
+      color: var(--yurok-white);
+    }
+
+    /* Footer Call Bar */
+    .call-bar {
+      padding: 24px 28px;
+      background-color: var(--bg-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 2px solid var(--yurok-red);
+    }
+
+    .call-action {
+      display: inline-block;
+      background-color: var(--yurok-red);
+      color: var(--yurok-white);
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 24px;
+      letter-spacing: 0.05em;
+      border: 2px solid var(--yurok-white);
+    }
+
+    .call-action:hover {
+      background-color: var(--yurok-white);
+      color: var(--bg-black);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signboard-container">
+
+    <!-- Geometric Basketry Band -->
+    <div class="basket-motif-band"></div>
+
+    <!-- Highway Location Header -->
+    <div class="road-marker-bar">
+      <span>HIGHWAY 101 PULL-OFF</span>
+      <span class="status-badge">OPEN &bull; TRAVELERS &amp; RIGS WELCOME</span>
+    </div>
+
+    <!-- Main Title Block -->
+    <header class="main-header">
+      <span class="tribal-affiliation">Yurok Owned &bull; Klamath River Corridor</span>
+      <h1 class="main-title">Smoked Provisions &amp; Native Art</h1>
+      <p class="sub-title">Traditional Smoke &bull; Handwoven Baskets &bull; Authentic Tribal Works</p>
+    </header>
+
+    <!-- Two-Counter Board -->
+    <section class="counters-grid">
+      
+      <!-- Counter 1: Smoked Provisions -->
+      <div class="counter-panel counter-left">
+        <span class="panel-tag">Counter 01</span>
+        <h2 class="panel-heading">The Smokehouse</h2>
+        <ul class="inventory-list">
+          <li class="inventory-item">
+            <span class="item-name">Alder-Smoked Salmon Strips</span>
+            <span class="item-desc">Traditional hard smoke, dry cured for durability and long road travel.</span>
+          </li>
+          <li class="inventory-item">
+            <span class="item-name">Thick Cut Vacuum Packs</span>
+            <span class="item-desc">Cold-smoked King and Coho fillets, sealed for immediate travel or home freezing.</span>
+          </li>
+          <li class="inventory-item">
+            <span class="item-name">Pantry Reserve Jars &amp; Cans</span>
+            <span class="item-desc">Wild-caught river and ocean catch packed in natural oil or light brine.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Counter 2: Artisan Basketry & Craft -->
+      <div class="counter-panel">
+        <span class="panel-tag">Counter 02</span>
+        <h2 class="panel-heading">Yurok Basketry &amp; Craft</h2>
+        <ul class="inventory-list">
+          <li class="inventory-item">
+            <span class="item-name">Authentic Woven Baskets</span>
+            <span class="item-desc">Woven with native hazel shoots, bear grass, and maidenhair fern stem.</span>
+          </li>
+          <li class="inventory-item">
+            <span class="item-name">Local Carvings &amp; Regalia Work</span>
+            <span class="item-desc">Redwood medallions, traditional elk horn spoons, and dentalia shell pieces.</span>
+          </li>
+          <li class="inventory-item">
+            <span class="item-name">Verified Artisan Lineage</span>
+            <span class="item-desc">Every piece certified and attributed under the Indian Arts and Crafts Act.</span>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Highway Wayfinding & Hand-Drawn Map -->
+    <section class="wayfinding-section">
+      
+      <div class="map-container">
+        <div class="map-frame">
+          <img src="map-placeholder.png" alt="Hand-Drawn Roadside Wayfinding Map" onerror="this.style.display='none'; document.getElementById('map-fallback-text').style.display='block';">
+          <div id="map-fallback-text" style="display: block;">
+            <p style="font-family: 'Lexend', sans-serif; font-weight: 700; color: var(--yurok-red); text-transform: uppercase;">[ HAND-DRAWN CANVA MAP HERE ]</p>
+            <p class="map-label">Black, red, and white landmark sketch</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wayfinding-details">
+        <div class="detail-block">
+          <h3>Highway Turnoff</h3>
+          <p>Easy access with broad gravel turnouts accommodating trucks, campers, and travel trailers.</p>
+        </div>
+        <div class="detail-block">
+          <h3>Shop Hours</h3>
+          <p>Thursday through Monday: 9:00 AM &ndash; 5:00 PM<br>Tuesday &amp; Wednesday: Closed</p>
+        </div>
+        <div class="detail-block">
+          <h3>Artisan Inquiries</h3>
+          <p>Call the counter directly to reserve specific woven pieces or verify seasonal smoked runs.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Geometric Basketry Band -->
+    <div class="basket-motif-band"></div>
+
+    <!-- Direct Contact Action -->
+    <footer class="call-bar">
+      <div>
+        <span style="font-family: 'Lexend', sans-serif; text-transform: uppercase; font-weight: 700; font-size: 0.9rem;">Checking current stock or highway conditions?</span>
+      </div>
+      <a href="tel:5550000000" class="call-action">Call the Counter</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
