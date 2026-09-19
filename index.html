@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+     <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -209,13 +210,11 @@
     .map-container {
       background-color: var(--panel-dark);
       border-right: 3px solid var(--border-white);
-      padding: 28px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 340px;
-      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -227,18 +226,14 @@
 
     .map-frame {
       width: 100%;
-      height: 100%;
       border: 2px solid var(--border-white);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      background-color: var(--bg-black);
+      background-color: #0D1117;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
-    .map-frame img {
+    .map-frame svg {
       width: 100%;
       height: auto;
       display: block;
@@ -373,7 +368,172 @@
       
       <div class="map-container">
         <div class="map-frame">
-          <img src="map.svg" alt="Highway 101 Southbound Wayfinding Map to Paul's Smoked Salmon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1300" width="100%" height="100%">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A202C" stroke-width="1"/>
+              </pattern>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+              </filter>
+            </defs>
+
+            <rect width="1200" height="1300" fill="#0D1117"/>
+            <rect width="1200" height="1300" fill="url(#grid)"/>
+
+            <!-- Pacific Ocean Coastline Reference (West) -->
+            <path d="M 0 0 L 160 0 Q 130 500 160 900 Q 130 1100 110 1300 L 0 1300 Z" fill="#0A192F" opacity="0.7"/>
+            <text x="50" y="650" fill="#2A4365" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" letter-spacing="6" transform="rotate(-90 50 650)">PACIFIC OCEAN</text>
+
+            <!-- Highway 101 Southbound -->
+            <line x1="560" y1="0" x2="560" y2="1300" stroke="#2D3748" stroke-width="32"/>
+            <line x1="560" y1="0" x2="560" y2="1300" stroke="#F6E05E" stroke-width="4" stroke-dasharray="24 16"/>
+
+            <!-- Top Corridor Marker -->
+            <g transform="translate(560, 30)" filter="url(#shadow)">
+              <rect x="-110" y="-18" width="220" height="36" fill="#161B22" stroke="#0033FF" stroke-width="2"/>
+              <text x="0" y="5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">TRAVELING SOUTHBOUND</text>
+            </g>
+
+            <!-- 1. Trees of Mystery -->
+            <g transform="translate(560, 80)" filter="url(#shadow)">
+              <circle cx="0" cy="0" r="7" fill="#48BB78" stroke="#1A202C" stroke-width="2"/>
+              <line x1="0" y1="0" x2="60" y2="0" stroke="#48BB78" stroke-width="2"/>
+              <rect x="60" y="-20" width="220" height="40" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <text x="75" y="5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">Trees of Mystery</text>
+            </g>
+
+            <!-- 3.5 Mile Open Stretch -->
+            <polygon points="560,150 553,137 567,137" fill="#00E5FF"/>
+            <polygon points="560,230 553,217 567,217" fill="#00E5FF"/>
+            <polygon points="560,310 553,297 567,297" fill="#00E5FF"/>
+            <g transform="translate(590, 230)">
+              <text x="0" y="0" fill="#4A5568" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1">~ 3.5 MILE OPEN HIGHWAY STRETCH</text>
+            </g>
+
+            <!-- 2. Requa Road -->
+            <g transform="translate(560, 390)">
+              <path d="M 0 0 L -360 -10" fill="none" stroke="#4A5568" stroke-width="10" stroke-linecap="square"/>
+              <rect x="-370" y="-36" width="160" height="48" fill="#161B22" stroke="#4A5568" stroke-width="1.5" filter="url(#shadow)"/>
+              <text x="-290" y="-14" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">REQUA ROAD</text>
+              <text x="-290" y="4" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">To River Mouth &amp; Coast</text>
+            </g>
+
+            <!-- 3. Chinook RV Park -->
+            <g transform="translate(560, 460)" filter="url(#shadow)">
+              <circle cx="0" cy="0" r="7" fill="#ECC94B" stroke="#1A202C" stroke-width="2"/>
+              <line x1="0" y1="0" x2="-50" y2="0" stroke="#ECC94B" stroke-width="2"/>
+              <rect x="-270" y="-22" width="220" height="44" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <rect x="-54" y="-22" width="4" height="44" fill="#ECC94B"/>
+              <text x="-70" y="5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">Chinook RV Park</text>
+            </g>
+
+            <!-- 4. Paul's -->
+            <g transform="translate(560, 540)" filter="url(#shadow)">
+              <rect x="-12" y="-12" width="24" height="24" fill="#0033FF" stroke="#FFFFFF" stroke-width="3" transform="rotate(45)"/>
+              <line x1="-12" y1="0" x2="-60" y2="0" stroke="#0033FF" stroke-width="3"/>
+              <rect x="-330" y="-34" width="270" height="68" fill="#0F172A" stroke="#0033FF" stroke-width="2.5"/>
+              <rect x="-64" y="-34" width="4" height="68" fill="#0033FF"/>
+              <text x="-80" y="-10" fill="#00E5FF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" letter-spacing="1" text-anchor="end">DESTINATION</text>
+              <text x="-80" y="14" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" text-anchor="end">PAUL'S</text>
+              <text x="-80" y="27" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="end">Smoked Salmon</text>
+            </g>
+
+            <!-- 5. Golden Bear RV Park -->
+            <g transform="translate(560, 630)" filter="url(#shadow)">
+              <circle cx="0" cy="0" r="7" fill="#ECC94B" stroke="#1A202C" stroke-width="2"/>
+              <line x1="0" y1="0" x2="-50" y2="0" stroke="#ECC94B" stroke-width="2"/>
+              <rect x="-270" y="-22" width="220" height="44" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <rect x="-54" y="-22" width="4" height="44" fill="#ECC94B"/>
+              <text x="-70" y="5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">Golden Bear RV Park</text>
+            </g>
+
+            <!-- 6. Jet Boat Tours -->
+            <g transform="translate(560, 700)" filter="url(#shadow)">
+              <circle cx="0" cy="0" r="7" fill="#38BDF8" stroke="#1A202C" stroke-width="2"/>
+              <line x1="0" y1="0" x2="-50" y2="0" stroke="#38BDF8" stroke-width="2"/>
+              <rect x="-270" y="-22" width="220" height="44" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <rect x="-54" y="-22" width="4" height="44" fill="#38BDF8"/>
+              <text x="-70" y="5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">Jet Boat Tours</text>
+            </g>
+
+            <!-- 1 Mile Stretch -->
+            <polygon points="560,770 553,757 567,757" fill="#00E5FF"/>
+            <polygon points="560,830 553,817 567,817" fill="#00E5FF"/>
+            <g transform="translate(590, 800)">
+              <text x="0" y="0" fill="#4A5568" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1">~ 1 MILE</text>
+            </g>
+
+            <!-- 7. Pem-Mey -->
+            <g transform="translate(560, 880)" filter="url(#shadow)">
+              <circle cx="0" cy="0" r="7" fill="#48BB78" stroke="#1A202C" stroke-width="2"/>
+              <line x1="0" y1="0" x2="60" y2="0" stroke="#48BB78" stroke-width="2"/>
+              <rect x="60" y="-25" width="230" height="50" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <rect x="60" y="-25" width="4" height="50" fill="#48BB78"/>
+              <text x="75" y="-3" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Pem-Mey</text>
+              <text x="75" y="16" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12">Fuel &amp; Market</text>
+            </g>
+
+            <!-- Klamath River Waterway -->
+            <path d="M 1200 1000 Q 800 1015 560 1000 T 160 1020" fill="none" stroke="#0033FF" stroke-width="40" opacity="0.35" stroke-linecap="round"/>
+            <path d="M 1200 1000 Q 800 1015 560 1000 T 160 1020" fill="none" stroke="#00E5FF" stroke-width="12" stroke-linecap="round"/>
+            <text x="820" y="980" fill="#00E5FF" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="3">KLAMATH RIVER</text>
+
+            <!-- 8. Bridge -->
+            <g transform="translate(560, 1000)">
+              <rect x="-24" y="-20" width="48" height="40" fill="#1A202C" stroke="#E2E8F0" stroke-width="2"/>
+              <line x1="-24" y1="-10" x2="24" y2="-10" stroke="#E2E8F0" stroke-width="1.5"/>
+              <line x1="-24" y1="0" x2="24" y2="0" stroke="#E2E8F0" stroke-width="1.5"/>
+              <line x1="-24" y1="10" x2="24" y2="10" stroke="#E2E8F0" stroke-width="1.5"/>
+              <text x="35" y="5" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600">Klamath River Bridge</text>
+            </g>
+
+            <!-- 9. Klamath Beach Road -->
+            <g transform="translate(560, 1120)">
+              <path d="M 0 0 L -360 20" fill="none" stroke="#4A5568" stroke-width="10" stroke-linecap="square"/>
+              <rect x="-370" y="-8" width="190" height="48" fill="#161B22" stroke="#4A5568" stroke-width="1.5" filter="url(#shadow)"/>
+              <text x="-275" y="14" fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">KLAMATH BEACH RD</text>
+              <text x="-275" y="32" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">South Bank Access</text>
+            </g>
+
+            <!-- Bottom Marker -->
+            <g transform="translate(560, 1255)" filter="url(#shadow)">
+              <rect x="-90" y="-16" width="180" height="32" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+              <text x="0" y="5" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">South to Prairie Creek / Orick</text>
+            </g>
+
+            <!-- Route Info Panel -->
+            <g transform="translate(860, 50)" filter="url(#shadow)">
+              <rect width="300" height="170" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+              <rect width="300" height="36" fill="#21262D"/>
+              <text x="16" y="24" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1">SOUTHBOUND CORRIDOR</text>
+
+              <text x="16" y="68" fill="#C9D1D9" font-family="system-ui, -apple-system, sans-serif" font-size="14">From Crescent City</text>
+              <text x="284" y="68" fill="#58A6FF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">~ 21 Miles</text>
+
+              <text x="16" y="104" fill="#C9D1D9" font-family="system-ui, -apple-system, sans-serif" font-size="14">Trees of Mystery to Paul's</text>
+              <text x="284" y="104" fill="#58A6FF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">~ 3.5 Miles</text>
+
+              <text x="16" y="140" fill="#C9D1D9" font-family="system-ui, -apple-system, sans-serif" font-size="14">Jet Boats to Pem-Mey</text>
+              <text x="284" y="140" fill="#58A6FF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="end">~ 1 Mile</text>
+            </g>
+
+            <!-- Compass Panel -->
+            <g transform="translate(860, 1120)" filter="url(#shadow)">
+              <rect width="300" height="120" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+              <g transform="translate(45, 60)">
+                <circle cx="0" cy="0" r="26" fill="#21262D" stroke="#30363D" stroke-width="2"/>
+                <polygon points="0,-20 -6,0 0,-3" fill="#00E5FF"/>
+                <polygon points="0,20 -6,0 0,3" fill="#4A5568"/>
+                <polygon points="0,-20 6,0 0,-3" fill="#0033FF"/>
+                <polygon points="0,20 6,0 0,3" fill="#718096"/>
+                <text x="0" y="-7" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" text-anchor="middle">N</text>
+              </g>
+              <text x="90" y="46" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">North of Klamath River</text>
+              <text x="90" y="70" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12">West side turn-in for RVs</text>
+              <text x="90" y="90" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12">Direct Highway 101 Access</text>
+            </g>
+          </svg>
         </div>
       </div>
 
