@@ -1,10 +1,9 @@
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paul's Smoked Salmon &amp; Local Art</title>
+  <title>Paul's Famous Smoked Salmon &amp; Local Art | Klamath, California</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
@@ -114,7 +113,7 @@
     .sub-title {
       font-size: 1.05rem;
       color: var(--muted-gray);
-      max-width: 650px;
+      max-width: 700px;
       margin: 0 auto;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -174,12 +173,53 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 28px;
     }
 
     .inventory-item {
-      border-left: 4px solid var(--yurok-red);
-      padding-left: 14px;
+      border: 2px solid #262626;
+      border-left: 6px solid var(--yurok-red);
+      background-color: #121212;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item-image-wrapper {
+      width: 100%;
+      height: 180px;
+      background-color: #1a1a1a;
+      border: 1px solid #333333;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .item-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted-gray);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .item-name {
@@ -187,12 +227,13 @@
       font-size: 1.15rem;
       display: block;
       color: var(--yurok-white);
+      font-family: 'Lexend', sans-serif;
     }
 
     .item-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--muted-gray);
-      margin-top: 6px;
+      line-height: 1.45;
     }
 
     /* Wayfinding & Map Layout */
@@ -273,6 +314,26 @@
       gap: 16px;
     }
 
+    .call-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .call-heading {
+      font-family: 'Lexend', sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .call-phone {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--yurok-red);
+    }
+
     .call-action {
       display: inline-block;
       background-color: var(--yurok-red);
@@ -301,15 +362,15 @@
 
     <!-- Highway Status Bar -->
     <div class="road-marker-bar">
-      <span>HIGHWAY 101 TURNOFF</span>
-      <span class="status-badge">OPEN &bull; EASY RIG &amp; TRAILER PARKING</span>
+      <span>HIGHWAY 101 TURNOFF &bull; KLAMATH, CA</span>
+      <span class="status-badge">OPEN WED&ndash;SUN 10 AM &ndash; 6 PM</span>
     </div>
 
     <!-- Main Title Block -->
     <header class="main-header">
       <span class="tribal-affiliation">Yurok Owned &bull; Klamath River Corridor</span>
-      <h1 class="main-title">Paul's Smoked Salmon</h1>
-      <p class="sub-title">Traditional Alder Smoke &bull; Handcrafted Local Art &bull; Roadside Stop</p>
+      <h1 class="main-title">Paul's Famous Smoked Salmon</h1>
+      <p class="sub-title">Traditional Alder Smoke &bull; Handcrafted Local Art &bull; Highway 101 Roadside Stop</p>
     </header>
 
     <!-- Pattern Band 2 -->
@@ -323,18 +384,40 @@
         <span class="panel-tag">Counter 01</span>
         <h2 class="panel-heading">The Smokehouse</h2>
         <ul class="inventory-list">
+          
           <li class="inventory-item">
-            <span class="item-name">Traditional Hard-Smoked Strips</span>
-            <span class="item-desc">Wild Pacific salmon cured and slow-smoked over local alder wood. Dry cured, shelf-stable, and built for travel.</span>
+            <div class="item-image-wrapper">
+              <img src="salmon-strips.jpg" alt="Traditional Hard-Smoked Strips" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Hard-Smoked Salmon Strips ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Traditional Hard-Smoked Strips</span>
+              <span class="item-desc">Wild Pacific salmon cured and slow-smoked over local alder wood. Dry cured, shelf-stable, and crafted for travel or the trail.</span>
+            </div>
           </li>
+
           <li class="inventory-item">
-            <span class="item-name">Vacuum-Sealed Fillets</span>
-            <span class="item-desc">Thick cuts of cold-smoked wild salmon, sealed tight for campers, coolers, or home freezers.</span>
+            <div class="item-image-wrapper">
+              <img src="salmon-fillets.jpg" alt="Vacuum-Sealed Smoked Salmon Fillets" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Vacuum-Sealed Fillets ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Vacuum-Sealed Fillets</span>
+              <span class="item-desc">Thick, tender portions of alder-smoked wild salmon, sealed tight for RV coolers, camp pantries, or home freezers.</span>
+            </div>
           </li>
+
           <li class="inventory-item">
-            <span class="item-name">Canned &amp; Jarred Reserves</span>
-            <span class="item-desc">Rich wild catch packed in natural oil or light brine. Ready for the camp pantry or highway snacking.</span>
+            <div class="item-image-wrapper">
+              <img src="canned-salmon.jpg" alt="Canned &amp; Jarred Reserves" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Canned &amp; Jarred Reserves ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Canned &amp; Jarred Reserves</span>
+              <span class="item-desc">Rich wild catch packed in natural juices and sea salt. Ready for highway snacking, long trips, or provisions.</span>
+            </div>
           </li>
+
         </ul>
       </div>
 
@@ -343,18 +426,40 @@
         <span class="panel-tag">Counter 02</span>
         <h2 class="panel-heading">Local Handcrafts</h2>
         <ul class="inventory-list">
+          
           <li class="inventory-item">
-            <span class="item-name">Traditional Woven Baskets</span>
-            <span class="item-desc">Handwoven by local Yurok artists using gathered hazel shoots, bear grass, and maidenhair fern.</span>
+            <div class="item-image-wrapper">
+              <img src="baskets.jpg" alt="Traditional Woven Baskets" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Woven Baskets ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Traditional Woven Baskets</span>
+              <span class="item-desc">Handwoven by local Yurok artists using gathered hazel sticks, bear grass, and native maidenhair fern.</span>
+            </div>
           </li>
+
           <li class="inventory-item">
-            <span class="item-name">Redwood &amp; Native Woodcraft</span>
-            <span class="item-desc">Handcrafted local carvings, pendants, and traditional pieces made right here along the river.</span>
+            <div class="item-image-wrapper">
+              <img src="woodcraft.jpg" alt="Redwood &amp; Native Woodcraft" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Native Woodcraft ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Redwood &amp; Native Woodcraft</span>
+              <span class="item-desc">Handcrafted local carvings, redwood jewelry, and hand-finished river wood pieces made along the Klamath.</span>
+            </div>
           </li>
+
           <li class="inventory-item">
-            <span class="item-name">Direct From Our Families &amp; Neighbors</span>
-            <span class="item-desc">Every craft piece in the shop comes straight from community artists we know and work with personally.</span>
+            <div class="item-image-wrapper">
+              <img src="community-art.jpg" alt="Community Artwork &amp; Jewelry" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-placeholder" style="display:none;">[ Photo: Community Art &amp; Jewelry ]</div>
+            </div>
+            <div class="item-details">
+              <span class="item-name">Community Artwork &amp; Jewelry</span>
+              <span class="item-desc">Authentic pieces sourced directly from local tribal artists, families, and carvers throughout the river community.</span>
+            </div>
           </li>
+
         </ul>
       </div>
 
@@ -435,8 +540,8 @@
               <rect x="-330" y="-34" width="270" height="68" fill="#0F172A" stroke="#0033FF" stroke-width="2.5"/>
               <rect x="-64" y="-34" width="4" height="68" fill="#0033FF"/>
               <text x="-80" y="-10" fill="#00E5FF" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" letter-spacing="1" text-anchor="end">DESTINATION</text>
-              <text x="-80" y="14" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" text-anchor="end">PAUL'S</text>
-              <text x="-80" y="27" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="end">Smoked Salmon</text>
+              <text x="-80" y="14" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" text-anchor="end">PAUL'S FAMOUS</text>
+              <text x="-80" y="27" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="end">Smoked Salmon &amp; Art</text>
             </g>
 
             <!-- 5. Golden Bear RV Park -->
@@ -539,16 +644,16 @@
 
       <div class="wayfinding-details">
         <div class="detail-block">
-          <h3>The Roadside Turnoff</h3>
-          <p>Wide, easy gravel turnout right off Highway 101. Plenty of room to pull in, park, and turn around with trailers, trucks, and campers.</p>
+          <h3>Highway 101 Turnout Location</h3>
+          <p>17635 Hwy 101 S, Klamath, CA 95548<br>Wide gravel turnout on the southbound side with direct pull-in access and ample turnaround clearance for travel trailers, campers, and trucks.</p>
         </div>
         <div class="detail-block">
-          <h3>Current Hours</h3>
-          <p>Thursday through Monday: 9:00 AM &ndash; 5:00 PM<br>Tuesday &amp; Wednesday: Closed</p>
+          <h3>Operating Hours</h3>
+          <p>Wednesday through Sunday: 10:00 AM &ndash; 6:00 PM<br>Monday &amp; Tuesday: Closed</p>
         </div>
         <div class="detail-block">
-          <h3>Check What's In The Cases</h3>
-          <p>Give us a quick call from the road to hold specific salmon cuts, check current basket pieces, or get local highway updates.</p>
+          <h3>Counter Contact</h3>
+          <p>Call the shop directly at (707) 482-0477 to hold smoked catch, verify available basket pieces, or ask for mile marker navigation assistance.</p>
         </div>
       </div>
 
@@ -559,10 +664,11 @@
 
     <!-- Footer Action -->
     <footer class="call-bar">
-      <div>
-        <span style="font-family: 'Lexend', sans-serif; text-transform: uppercase; font-weight: 700; font-size: 0.95rem;">Checking the cases or road conditions?</span>
+      <div class="call-info">
+        <span class="call-heading">Calling from the highway?</span>
+        <span class="call-phone">(707) 482-0477</span>
       </div>
-      <a href="tel:5550000000" class="call-action">Call the Counter</a>
+      <a href="tel:7074820477" class="call-action">Call the Counter</a>
     </footer>
 
     <!-- Pattern Band 5 -->
@@ -572,3 +678,5 @@
 
 </body>
 </html>
+    
+ 
