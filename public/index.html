@@ -243,6 +243,73 @@
       line-height: 1.45;
     }
 
+    /* History & Tradition Story Section */
+    .story-section {
+      padding: 44px 32px;
+      background-color: var(--panel-dark);
+      border-top: 2px solid var(--border-white);
+      border-bottom: 2px solid var(--border-white);
+    }
+
+    .story-tag {
+      display: inline-block;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yurok-red);
+      margin-bottom: 8px;
+    }
+
+    .story-heading {
+      font-family: 'Lexend', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--yurok-white);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--yurok-red);
+      padding-bottom: 8px;
+    }
+
+    .story-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .story-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .story-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 0.98rem;
+      color: var(--yurok-white);
+      line-height: 1.6;
+    }
+
+    .story-copy p {
+      color: #d1d5db;
+    }
+
+    .story-image-wrapper {
+      width: 100%;
+      height: 240px;
+      background-color: #121212;
+      border: 2px solid #333333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Wayfinding & Map Layout */
     .wayfinding-section {
       display: grid;
@@ -525,6 +592,27 @@
     <!-- Pattern Band 3 -->
     <div class="woven-band"></div>
 
+    <!-- History & Tradition Story Section -->
+    <section class="story-section">
+      <span class="story-tag">Tradition &bull; Family Owned</span>
+      <h2 class="story-heading">The Story of Paul's Smoked Salmon</h2>
+      <div class="story-body">
+        <div class="story-copy">
+          <p>Rooted along the lower Klamath River, Paul's Famous Smoked Salmon carries forward generations of Yurok smoking traditions. For decades, our smokehouse has cured and preserved wild Pacific salmon using seasoned local alder wood—the time-tested way to seal in rich natural oils and authentic flavor without artificial preservatives.</p>
+          <p>What started as a labor of love for family, community, and neighbors has grown into a landmark roadside stop for travelers navigating Highway 101. Behind our counter, you will find more than just wild salmon; you will find a direct connection to Klamath River heritage, local artist families, and the people who call this corridor home.</p>
+        </div>
+        <div class="story-image-wrapper">
+          <div class="image-placeholder">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <span>Smokehouse Heritage Photo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pattern Band 4 -->
+    <div class="woven-band"></div>
+
     <!-- Highway Route & Map -->
     <section class="wayfinding-section">
       
@@ -716,7 +804,7 @@
 
     </section>
 
-    <!-- Pattern Band 4 -->
+    <!-- Pattern Band 5 -->
     <div class="woven-band"></div>
 
     <!-- Call Action Bar -->
@@ -750,7 +838,7 @@
       <span>&copy; 2026 Paul's Famous Smoked Salmon</span>
     </div>
 
-    <!-- Pattern Band 5 -->
+    <!-- Pattern Band 6 -->
     <div class="woven-band"></div>
 
   </div>
